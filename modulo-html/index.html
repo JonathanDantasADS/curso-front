@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios HTML</title>
+</head>
+<body>
+    <head>
+        Exercícios HTML
+    </head>
+    <nav>
+        <!-- 
+            <a href wm-nav="exercicios/teste.html">00 - Teste</a> ||
+            <a href wm-van="exercicios/temp.html">01 - Temp</a>
+        -->
+
+        <a href="exercicios/teste.html">00 - Teste</a> ||
+        <a href="exercicios/temp.html">01 - Temp</a>
+    </nav>
+    <section id="conteudo"></section>
+    <footer>
+        <br>
+        Curso de Web Moderno
+    </footer>
+
+
+    <!-- Script para buscar informações de uma outra pagina sem sair da principal -->
+    <script>
+     // document.querySelectorAll('[wm-nav]').forEach(link 
+        document.querySelectorAll('a').forEach(link => {
+            const conteudo = document.querySelector('section#conteudo')
+            
+            link.onclick = function(e) {
+                e.preventDefault()
+              //fetch(link.getAttribbute('wm-nav'))
+                fetch(link.href)
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</body>
+</html>
