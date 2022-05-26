@@ -1,0 +1,1 @@
+// Lembrando que é necessário pegar novas imagens e ajustar o tamanho sem a necessidade de fazer a correção pelo CSS

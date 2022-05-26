@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linhas Aéreas Brasileira</title>
+
+    <style>
+        body {
+            background-color: rgb(46, 81, 197);
+            color: white;
+        }
+        input {
+            font: normal 12pt Arial;
+        }
+
+        div#res {
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Verificação do passaport</h1>
+    Digite a sua nacionalidade: <input type="text" name="txtnacio" id="txtnacio">
+
+    <input type="button" value="Verificação" onclick="validacao()">
+    
+    <div id="res">
+
+    </div>
+    <script>
+        function validacao(){
+
+            var nacionalidade = window.document.querySelector('input#txtnacio')
+            var resultado = window.document.querySelector('div#res')
+            var result = nacionalidade.value
+
+            resultado.innerHTML = `<p>Você é <strong>${result}</strong></p>`
+
+            if(result == 'brasileiro' || 'Brasileiro' || 'BRASILEIRO') {
+                resultado.innerHTML += `<p> Você também <strong>não é Estrangeiro</strong></p>`
+            } else {
+                resultado.innerHTML += `<p> Você </strong> é <strong>estrangeiro</strong></p>`
+            }
+            resultado.innerHTML += `<p>Tenha uma boa viagem</p>`
+        }
+    </script>
+</body>
+</html>
