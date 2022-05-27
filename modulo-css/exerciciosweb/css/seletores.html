@@ -73,12 +73,40 @@
         color: #ff0;
         background-color: #f77;
     }
-    */
 
-        [feira=casa] {
-            color: #ff0;
-            background-color: #f77;
-        }
+    ## Seletor primeiro filho do tipo span
+    span:nth-child(1) {
+        color: #ff0;
+        background-color: #f77;
+    }
+
+    ## Seletor dentro de uma section de todos os filhos ímpares 
+    section > :nth-child(odd) {
+        color: #ff0;
+        background-color: #f77;
+    }
+
+    ## Seletor dentro de uma section de todos os filhos pares 
+    section > :nth-child(even) {
+        color: #ff0;
+        background-color: #f77;
+    }
+
+    ## Seletor dentro de uma section de todos os filhos pares e para tags ul
+    section > :nth-child(even), ul {
+        color: #ff0;
+        background-color: #f77;
+    }
+
+    ## Seletor segundo elemento dentro da section que tem uma tag span
+    section > span:nth-of-type(2) {
+        color: #ff0;
+        background-color: #f77;
+    }
+    */
+        section > span:nth-of-type(2) {
+        color: #ff0;
+        background-color: #f77;
 
     </style>
 </head>
@@ -102,7 +130,7 @@
             </ol>
             <div id='aninhado' class='tag'>
                 <div class="tag">
-                    <section class='tag'>
+                    <section class='tag nolabel'>
                         <span class='tag'>1</span>
                         <p class='tag'>2</p>
                         <span class='tag'>3</span>
