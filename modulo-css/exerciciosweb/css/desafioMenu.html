@@ -7,7 +7,118 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
-        /* ... */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            background-color: #c9c9c9;
+        }
+
+        .cabecalho {
+            background-color: rgb(43, 43, 43);
+            border-bottom: solid 5px #4faddb;
+            height: 80px;
+            box-sizing: content-box;
+        }
+
+        .logo {
+            display: inline-block;
+            height: 80px;
+            padding: 15px;
+        }
+
+        .logo img {
+            height: 100%;
+        }
+
+        .menu-toggle {
+            float:right;
+            color: #eee;
+            background-color: rgb(20, 35, 84);
+            border: solid 1px;
+            border-radius: 5px;
+            height: 40px;
+            padding: 10px 20px;
+            margin: 20px 15px;            
+        }
+
+        .menu {
+            display: inline-block;
+            vertical-align: top;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .menu ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            display: inline-block;
+        }
+
+        .cabecalho a {
+            text-decoration: none;
+            color: rgb(234, 233, 233);
+            font-size: 1.3em;
+        }
+
+        .menu a {
+            padding: 15px;
+        }
+
+        .autenticacao {
+            float: right;
+            padding: 25px;
+        }
+
+        .menu a:hover,
+        .menu a.selected {
+            background-color: #4faddb;
+            color: #000;
+        }
+
+        .botao {
+            border-radius: 30px;
+            padding: 10px 25px;
+            margin: 10px;
+        }
+
+        .destaque {
+            background-color: rgb(196, 36, 36);
+            color: white;
+        }
+
+
+        /* Regras Media Query */
+
+        /* Quando o toggle for menor que 679px o toggle irá aparecer */
+        /* toggle < display */
+        @media(min-width: 679px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        /* Quando o menu for maior que 680px, o menu irá aparecer */
+        /* menu > display */
+        @media(max-width: 680px) {
+            .menu {
+                display: none;
+            }
+        }
+
+        /* Quando a autenticacao for maior que 910px, a autenticacao irá aparecer */
+        /* autenticacao > display */
+        @media(max-width: 910px) {
+            .autenticacao {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -44,7 +155,17 @@
     </header>
 
     <script>
-        // ...
+
+        // Função Captura o clique no menu, origem => destino
+        window.onhashchange = function(e) {
+            const oldURL = e.oldURL.split('#')[1]
+            const newURL = e.newURL.split('#')[1]
+            console.log(oldURL, newURL)
+            const oldLink = document.querySelector(`.menu a[href='#${oldURL}']`)
+            const newLink = document.querySelector(`.menu a[href='#${newURL}']`)
+            oldLink && oldLink.classList.remove('selected') // Essa linha remove a marcação do a:hover ao clicar em outra opção
+            newLink && newLink.classList.add('selected') // Essa linha marca uma nova a:hover e deixa selecionada
+        }
     </script>
 </body>
 
